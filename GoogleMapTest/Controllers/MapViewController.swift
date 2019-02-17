@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class MapViewController: UIViewController, GMSMapViewDelegate {
+class MapViewController: UIViewController{
     
     @IBOutlet weak var mapView: GMSMapView!
     var locationManager = CLLocationManager()
@@ -23,6 +23,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
     }
+    
     
    
 } // class
@@ -40,3 +41,18 @@ extension MapViewController: CLLocationManagerDelegate{
     }
 }
 
+
+extension MapViewController: GMSMapViewDelegate, AlertMarker{
+    
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        let marker = GMSMarker(position: coordinate)
+        
+        alertMarker { (title) in
+            guard let title = title else { return }
+            print(title)
+            print("\(coordinate.latitude) \(coordinate.longitude)")
+            marker.title = title
+            marker.map = mapView
+        }
+    }
+}
