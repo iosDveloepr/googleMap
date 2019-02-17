@@ -7,24 +7,36 @@
 //
 
 import UIKit
+import GoogleMaps
+import CoreLocation
 
-class MapViewController: UIViewController {
-
+class MapViewController: UIViewController, GMSMapViewDelegate {
+    
+    @IBOutlet weak var mapView: GMSMapView!
+    var locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        mapView.isMyLocationEnabled = true
+        mapView.delegate = self
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
     }
     
+   
+} // class
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension MapViewController: CLLocationManagerDelegate{
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last
+        guard let latitude = location?.coordinate.latitude else { return }
+        guard let longtitude = location?.coordinate.longitude else { return }
+        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longtitude, zoom:14)
+        mapView.animate(to: camera)
+        self.locationManager.stopUpdatingLocation()
     }
-    */
-
 }
+

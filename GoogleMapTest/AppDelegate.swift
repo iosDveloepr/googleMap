@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FirebaseAuth
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -22,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         
         let isLogged = (Auth.auth().currentUser != nil) ? true : false
         navigateUserToMainScreenIf(currentUser: isLogged)
+        
+        GMSServices.provideAPIKey("AIzaSyD2gHYJVuItx7HaAZiiKlJtb5PaEoSb7RI")
+        GMSPlacesClient.provideAPIKey("AIzaSyD2gHYJVuItx7HaAZiiKlJtb5PaEoSb7RI")
         
         return true
     }

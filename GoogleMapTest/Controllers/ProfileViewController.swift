@@ -13,21 +13,15 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController, AlertDisplayer {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
     
     @IBAction func logOut(_ sender: UIButton) {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
+            performSegue(withIdentifier: "logOut", sender: sender)
         } catch let signOutError as NSError {
             self.displayAlert(with: "Some problems with sign out", message: signOutError.localizedDescription)
         }
-        performSegue(withIdentifier: "logOut", sender: sender)
     }
-    
-    
     
 } // class

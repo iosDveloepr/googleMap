@@ -188,16 +188,28 @@
                                     <navigationItem title="Google Map" id="dxd-Vh-ROF"/>
                                 </items>
                             </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waR-Fm-TA4" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Mnb-Fg-lhQ" firstAttribute="leading" secondItem="FxG-OB-7jN" secondAttribute="leading" id="923-il-qvp"/>
+                            <constraint firstItem="waR-Fm-TA4" firstAttribute="leading" secondItem="FxG-OB-7jN" secondAttribute="leading" id="LdX-V0-bf7"/>
+                            <constraint firstItem="FxG-OB-7jN" firstAttribute="bottom" secondItem="waR-Fm-TA4" secondAttribute="bottom" id="P3P-3h-n9t"/>
                             <constraint firstItem="Mnb-Fg-lhQ" firstAttribute="trailing" secondItem="FxG-OB-7jN" secondAttribute="trailing" id="SBW-d7-OZ7"/>
+                            <constraint firstItem="waR-Fm-TA4" firstAttribute="top" secondItem="Mnb-Fg-lhQ" secondAttribute="bottom" id="T06-pL-dde"/>
+                            <constraint firstAttribute="top" secondItem="Mnb-Fg-lhQ" secondAttribute="bottom" constant="-44" id="m8B-GC-7em"/>
                             <constraint firstItem="Mnb-Fg-lhQ" firstAttribute="top" secondItem="FxG-OB-7jN" secondAttribute="top" constant="-20" id="pPu-tx-6ww"/>
+                            <constraint firstItem="FxG-OB-7jN" firstAttribute="trailing" secondItem="waR-Fm-TA4" secondAttribute="trailing" id="qkI-Os-7JH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FxG-OB-7jN"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="3fV-ay-ylE"/>
+                    <connections>
+                        <outlet property="mapView" destination="waR-Fm-TA4" id="CCC-CH-BRX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6N-xb-beT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
