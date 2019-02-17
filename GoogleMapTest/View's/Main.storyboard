@@ -25,11 +25,23 @@
                                     <action selector="logOut:" destination="VxF-it-Zrj" eventType="touchUpInside" id="C5h-Cn-LDx"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJ7-TK-x13">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="eNM-6c-Vt6"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Google Map" id="vH3-Vi-zKj"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qax-W8-CxO" firstAttribute="bottom" secondItem="SOj-i0-e1w" secondAttribute="bottom" constant="20" id="1rd-Ve-85A"/>
+                            <constraint firstItem="mJ7-TK-x13" firstAttribute="trailing" secondItem="qax-W8-CxO" secondAttribute="trailing" id="C3N-lH-sWL"/>
                             <constraint firstItem="SOj-i0-e1w" firstAttribute="centerX" secondItem="qax-W8-CxO" secondAttribute="centerX" id="EcX-Wh-Isd"/>
+                            <constraint firstItem="mJ7-TK-x13" firstAttribute="top" secondItem="qax-W8-CxO" secondAttribute="top" constant="-20" id="STN-Db-Tre"/>
+                            <constraint firstItem="mJ7-TK-x13" firstAttribute="leading" secondItem="qax-W8-CxO" secondAttribute="leading" id="p7g-Wo-GAM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qax-W8-CxO"/>
                     </view>
@@ -40,7 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lqh-Ks-rjV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-420" y="431.33433283358323"/>
+            <point key="canvasLocation" x="-770" y="655"/>
         </scene>
         <!--Loggin-->
         <scene sceneID="idD-q9-QOP">
@@ -48,23 +60,97 @@
                 <viewControllerPlaceholder storyboardIdentifier="LogginVC" storyboardName="Loggin" id="e0B-xe-aEV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tuJ-Z3-MUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="287" y="431"/>
+            <point key="canvasLocation" x="-23" y="654"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="XSV-iZ-WDN">
             <objects>
-                <viewController id="gSI-je-nDb" sceneMemberID="viewController">
+                <viewController id="gSI-je-nDb" customClass="LocationListViewController" customModule="GoogleMapTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mqK-nh-BgP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0ZM-ab-sDs">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationCell" rowHeight="90" id="nsl-Fh-arr" customClass="LocationTableViewCell" customModule="GoogleMapTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nsl-Fh-arr" id="OMB-Ix-qHo">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7C-L0-tR6">
+                                                    <rect key="frame" x="8" y="5.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cri-nG-Thf">
+                                                    <rect key="frame" x="8" y="63.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfr-KG-aje">
+                                                    <rect key="frame" x="8" y="34.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Pfr-KG-aje" firstAttribute="top" secondItem="w7C-L0-tR6" secondAttribute="bottom" constant="8" id="Htu-iU-9aE"/>
+                                                <constraint firstItem="Cri-nG-Thf" firstAttribute="top" secondItem="Pfr-KG-aje" secondAttribute="bottom" constant="8" id="NXb-go-28E"/>
+                                                <constraint firstItem="Pfr-KG-aje" firstAttribute="leading" secondItem="OMB-Ix-qHo" secondAttribute="leading" constant="8" id="TPw-bn-oSn"/>
+                                                <constraint firstItem="Pfr-KG-aje" firstAttribute="centerY" secondItem="OMB-Ix-qHo" secondAttribute="centerY" id="bjT-If-0cY"/>
+                                                <constraint firstItem="Cri-nG-Thf" firstAttribute="leading" secondItem="OMB-Ix-qHo" secondAttribute="leading" constant="8" id="hV6-35-AHM"/>
+                                                <constraint firstItem="w7C-L0-tR6" firstAttribute="leading" secondItem="OMB-Ix-qHo" secondAttribute="leading" constant="8" id="qmT-mr-c62"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="locationLatitude" destination="Pfr-KG-aje" id="d9T-60-1Tv"/>
+                                            <outlet property="locationLongtitude" destination="Cri-nG-Thf" id="3Yo-fe-ijf"/>
+                                            <outlet property="locationName" destination="w7C-L0-tR6" id="yfV-hd-duB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gSI-je-nDb" id="0RK-Ec-bAY"/>
+                                    <outlet property="delegate" destination="gSI-je-nDb" id="kvR-pG-2SF"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hek-hg-tT1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="iXh-lC-bwu"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Google Map" id="VBH-ic-PLq"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0ZM-ab-sDs" firstAttribute="bottom" secondItem="vAz-1P-q6w" secondAttribute="bottom" id="0FV-jg-5Dy"/>
+                            <constraint firstItem="hek-hg-tT1" firstAttribute="trailing" secondItem="vAz-1P-q6w" secondAttribute="trailing" id="Plf-C0-uXi"/>
+                            <constraint firstItem="0ZM-ab-sDs" firstAttribute="trailing" secondItem="vAz-1P-q6w" secondAttribute="trailing" id="cWI-kb-UrG"/>
+                            <constraint firstItem="hek-hg-tT1" firstAttribute="leading" secondItem="vAz-1P-q6w" secondAttribute="leading" id="fUR-wk-Dnv"/>
+                            <constraint firstItem="0ZM-ab-sDs" firstAttribute="leading" secondItem="vAz-1P-q6w" secondAttribute="leading" id="g2i-8B-wsI"/>
+                            <constraint firstItem="0ZM-ab-sDs" firstAttribute="top" secondItem="hek-hg-tT1" secondAttribute="bottom" id="pxX-w4-4Ms"/>
+                            <constraint firstItem="hek-hg-tT1" firstAttribute="top" secondItem="vAz-1P-q6w" secondAttribute="top" constant="-20" id="tM3-es-kXk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vAz-1P-q6w"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="XsW-Ar-28F"/>
+                    <connections>
+                        <outlet property="tableView" destination="0ZM-ab-sDs" id="EB4-ue-eVT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IAU-9A-Nqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-419" y="-487"/>
+            <point key="canvasLocation" x="-770.39999999999998" y="-883.80809595202402"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="TYU-2f-BcL">
@@ -77,12 +163,45 @@
                     </tabBar>
                     <connections>
                         <segue destination="gSI-je-nDb" kind="relationship" relationship="viewControllers" id="2EH-cY-6Qj"/>
+                        <segue destination="5kj-kF-KsS" kind="relationship" relationship="viewControllers" id="Nbi-ol-q9Z"/>
                         <segue destination="VxF-it-Zrj" kind="relationship" relationship="viewControllers" id="ET2-rZ-poF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Zs-hf-jej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1425" y="25"/>
+            <point key="canvasLocation" x="-1670" y="-91"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="b9a-bB-aB8">
+            <objects>
+                <viewController id="5kj-kF-KsS" customClass="MapViewController" customModule="GoogleMapTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z0u-nB-4kX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mnb-Fg-lhQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="jOO-Vy-8hh"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Google Map" id="dxd-Vh-ROF"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Mnb-Fg-lhQ" firstAttribute="leading" secondItem="FxG-OB-7jN" secondAttribute="leading" id="923-il-qvp"/>
+                            <constraint firstItem="Mnb-Fg-lhQ" firstAttribute="trailing" secondItem="FxG-OB-7jN" secondAttribute="trailing" id="SBW-d7-OZ7"/>
+                            <constraint firstItem="Mnb-Fg-lhQ" firstAttribute="top" secondItem="FxG-OB-7jN" secondAttribute="top" constant="-20" id="pPu-tx-6ww"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FxG-OB-7jN"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="3fV-ay-ylE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I6N-xb-beT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-770" y="-91"/>
         </scene>
     </scenes>
 </document>

@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         return true
     }
     
-    
     private func navigateUserToMainScreenIf(currentUser: Bool) {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
@@ -48,9 +47,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         return GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
                                                  annotation: [:])
     }
-    
-    
-    
-    
 }
 
