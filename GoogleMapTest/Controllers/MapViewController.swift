@@ -22,10 +22,9 @@ class MapViewController: UIViewController{
         mapView.delegate = self
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
+        
     }
     
-    
-   
 } // class
 
 
@@ -41,18 +40,16 @@ extension MapViewController: CLLocationManagerDelegate{
     }
 }
 
-
 extension MapViewController: GMSMapViewDelegate, AlertMarker{
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         let marker = GMSMarker(position: coordinate)
-        
+        let apiManager = ApiManager()
         alertMarker { (title) in
             guard let title = title else { return }
-            print(title)
-            print("\(coordinate.latitude) \(coordinate.longitude)")
             marker.title = title
             marker.map = mapView
+            apiManager.postLocation(withTitle: title, latitude: coordinate.latitude, longtitude: coordinate.longitude)
         }
     }
 }

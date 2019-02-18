@@ -11,5 +11,6 @@ target 'GoogleMapTest' do
    pod 'GoogleSignIn'
    pod 'GoogleMaps'
    pod 'GooglePlaces'
+   pod 'Firebase/Database'
 
 end

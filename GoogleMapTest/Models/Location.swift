@@ -7,9 +7,18 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 struct Location{
-    let name: String
+  
+    let title: String
     let latitude: Double
     let longtitude: Double
+    
+    init(snapshot: DataSnapshot) {
+        let locationDict = snapshot.value as! [String: AnyObject]
+        title = locationDict["title"] as! String
+        latitude = locationDict["latitude"] as! Double
+        longtitude = locationDict["longtitude"] as! Double
+    }
 }

@@ -12,12 +12,19 @@ class LocationListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var locations = [Location]()
+    var locations = [Location](){
+        didSet{
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
+        let apiManager = ApiManager()
+        apiManager.getLocations { (locations) in
+           self.locations = locations
+        }
     }
     
 
@@ -59,7 +66,7 @@ extension LocationListViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 100
     }
     
 }

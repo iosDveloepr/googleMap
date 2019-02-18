@@ -15,7 +15,7 @@ class LocationTableViewCell: UITableViewCell {
     @IBOutlet weak var locationLongtitude: UILabel!
     
     func setUpCell(location: Location){
-        locationName.text = location.name
+        locationName.text = location.title
         locationLatitude.text = location.latitude.description
         locationLongtitude.text = location.longtitude.description
     }

@@ -18,6 +18,7 @@
 		DF00C9F7221882B5006BD733 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF00C9F6221882B5006BD733 /* ErrorAlert.swift */; };
 		DF00C9FB221882E2006BD733 /* Loggin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF00C9FA221882E2006BD733 /* Loggin.storyboard */; };
 		DF00CA0822188349006BD733 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF00CA0722188349006BD733 /* Main.storyboard */; };
+		DF62CADF221ACA0F00EA6F9A /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62CADE221ACA0F00EA6F9A /* ApiManager.swift */; };
 		DFD5B8DC221969A000A49817 /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD5B8DB221969A000A49817 /* LocationListViewController.swift */; };
 		DFD5B8DE221969C100A49817 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD5B8DD221969C100A49817 /* MapViewController.swift */; };
 		DFD5B8E0221973B000A49817 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD5B8DF221973B000A49817 /* LocationTableViewCell.swift */; };
@@ -41,6 +42,7 @@
 		DF00C9F6221882B5006BD733 /* ErrorAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		DF00C9FA221882E2006BD733 /* Loggin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loggin.storyboard; sourceTree = "<group>"; };
 		DF00CA0722188349006BD733 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DF62CADE221ACA0F00EA6F9A /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		DFD5B8DB221969A000A49817 /* LocationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		DFD5B8DD221969C100A49817 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DFD5B8DF221973B000A49817 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				DF00CA0E22188ABF006BD733 /* View's */,
 				DF00CA0D22188A92006BD733 /* Controllers */,
 				DF00CA0F22188B0C006BD733 /* Utilities */,
+				DF62CADD221AC9F300EA6F9A /* ApiManager */,
 			);
 			path = GoogleMapTest;
 			sourceTree = "<group>";
@@ -140,6 +143,14 @@
 				DFD5B8E42219BF2700A49817 /* MarkerAlert.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DF62CADD221AC9F300EA6F9A /* ApiManager */ = {
+			isa = PBXGroup;
+			children = (
+				DF62CADE221ACA0F00EA6F9A /* ApiManager.swift */,
+			);
+			path = ApiManager;
 			sourceTree = "<group>";
 		};
 		DFD5B8E12219743000A49817 /* Models */ = {
@@ -234,6 +245,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -243,6 +255,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +324,7 @@
 				DF00C9F122188286006BD733 /* LogginViewController.swift in Sources */,
 				DFD5B8E32219744D00A49817 /* Location.swift in Sources */,
 				DF00C9F5221882A2006BD733 /* ProfileViewController.swift in Sources */,
+				DF62CADF221ACA0F00EA6F9A /* ApiManager.swift in Sources */,
 				DFD5B8DC221969A000A49817 /* LocationListViewController.swift in Sources */,
 				DF00C9DD22187F70006BD733 /* AppDelegate.swift in Sources */,
 				DFD5B8E52219BF2700A49817 /* MarkerAlert.swift in Sources */,
