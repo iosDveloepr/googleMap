@@ -11,11 +11,13 @@ import FirebaseDatabase
 
 struct Location{
   
+    let locationKey: String
     let title: String
     let latitude: Double
     let longtitude: Double
     
     init(snapshot: DataSnapshot) {
+        locationKey = snapshot.key
         let locationDict = snapshot.value as! [String: AnyObject]
         title = locationDict["title"] as! String
         latitude = locationDict["latitude"] as! Double

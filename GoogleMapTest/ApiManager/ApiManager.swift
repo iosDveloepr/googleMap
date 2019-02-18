@@ -33,6 +33,13 @@ class ApiManager{
             completion(locationResponse)
         }
     }
+    
+    func remove(child: String) {
+        guard let uid = uid else { return }
+        ref.child("locations").child(uid).child(child).removeValue { error, _ in
+            print(error.debugDescription)
+        }
+    }
 
     
 } // class
