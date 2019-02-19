@@ -37,6 +37,7 @@ class MapViewController: UIViewController{
         self.dismiss(animated: false, completion: nil)
     }
     
+    
     private func setMarkers(){
         let locationsVC = self.tabBarController?.viewControllers?[0].contentViewcontroller as! LocationListViewController
         self.locations = locationsVC.locations
@@ -49,7 +50,7 @@ class MapViewController: UIViewController{
     }
     
     private func showLocation(){
-        if location?.title != nil{
+        if location != nil{
             let camera = GMSCameraPosition.camera(withLatitude: location!.latitude, longitude: location!.longtitude, zoom: 10)
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location!.latitude, longitude: location!.longtitude))
             marker.title = location?.title
