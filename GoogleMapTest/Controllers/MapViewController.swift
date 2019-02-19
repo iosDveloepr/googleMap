@@ -14,6 +14,8 @@ class MapViewController: UIViewController{
     
     @IBOutlet weak var mapView: GMSMapView!
     var locationManager = CLLocationManager()
+    var locations = [Location]()
+    var location: Location?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +23,43 @@ class MapViewController: UIViewController{
         mapView.isMyLocationEnabled = true
         mapView.delegate = self
         locationManager.delegate = self
-        locationManager.startUpdatingLocation()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+         showLocation()
+         setMarkers()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        location = nil
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    private func setMarkers(){
+        let locationsVC = self.tabBarController?.viewControllers?[0].contentViewcontroller as! LocationListViewController
+        self.locations = locationsVC.locations
         
+        for marker in locations{
+            let markerObject = GMSMarker(position: CLLocationCoordinate2D(latitude: marker.latitude, longitude: marker.longtitude))
+            markerObject.title = marker.title
+            markerObject.map = mapView
+        }
+    }
+    
+    private func showLocation(){
+        if location?.title != nil{
+            let camera = GMSCameraPosition.camera(withLatitude: location!.latitude, longitude: location!.longtitude, zoom: 10)
+            let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location!.latitude, longitude: location!.longtitude))
+            marker.title = location?.title
+            marker.map = mapView
+            mapView.selectedMarker = marker
+            
+            mapView.animate(to: camera)
+        } else {
+            locationManager.startUpdatingLocation()
+        }
     }
     
 } // class
@@ -34,7 +71,7 @@ extension MapViewController: CLLocationManagerDelegate{
         let location = locations.last
         guard let latitude = location?.coordinate.latitude else { return }
         guard let longtitude = location?.coordinate.longitude else { return }
-        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longtitude, zoom:14)
+        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longtitude, zoom: 14)
         mapView.animate(to: camera)
         self.locationManager.stopUpdatingLocation()
     }

@@ -18,6 +18,7 @@
 		DF00C9F7221882B5006BD733 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF00C9F6221882B5006BD733 /* ErrorAlert.swift */; };
 		DF00C9FB221882E2006BD733 /* Loggin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF00C9FA221882E2006BD733 /* Loggin.storyboard */; };
 		DF00CA0822188349006BD733 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF00CA0722188349006BD733 /* Main.storyboard */; };
+		DF068B72221C13C80007802A /* VCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF068B71221C13C80007802A /* VCExtension.swift */; };
 		DF62CADF221ACA0F00EA6F9A /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62CADE221ACA0F00EA6F9A /* ApiManager.swift */; };
 		DFD5B8DC221969A000A49817 /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD5B8DB221969A000A49817 /* LocationListViewController.swift */; };
 		DFD5B8DE221969C100A49817 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD5B8DD221969C100A49817 /* MapViewController.swift */; };
@@ -42,6 +43,7 @@
 		DF00C9F6221882B5006BD733 /* ErrorAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		DF00C9FA221882E2006BD733 /* Loggin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loggin.storyboard; sourceTree = "<group>"; };
 		DF00CA0722188349006BD733 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DF068B71221C13C80007802A /* VCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCExtension.swift; sourceTree = "<group>"; };
 		DF62CADE221ACA0F00EA6F9A /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		DFD5B8DB221969A000A49817 /* LocationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		DFD5B8DD221969C100A49817 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				DF00C9F6221882B5006BD733 /* ErrorAlert.swift */,
 				DFD5B8E42219BF2700A49817 /* MarkerAlert.swift */,
+				DF068B71221C13C80007802A /* VCExtension.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			files = (
 				DF00C9F32218829C006BD733 /* MainViewController.swift in Sources */,
 				DF00C9F7221882B5006BD733 /* ErrorAlert.swift in Sources */,
+				DF068B72221C13C80007802A /* VCExtension.swift in Sources */,
 				DFD5B8E0221973B000A49817 /* LocationTableViewCell.swift in Sources */,
 				DF00C9F122188286006BD733 /* LogginViewController.swift in Sources */,
 				DFD5B8E32219744D00A49817 /* Location.swift in Sources */,
