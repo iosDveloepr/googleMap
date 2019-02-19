@@ -19,7 +19,7 @@ class MapViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         mapView.isMyLocationEnabled = true
         mapView.delegate = self
         locationManager.delegate = self
@@ -28,13 +28,8 @@ class MapViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-         showLocation()
-         setMarkers()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        location = nil
-        self.dismiss(animated: false, completion: nil)
+        showLocation()
+        setMarkers()
     }
     
     
@@ -51,13 +46,13 @@ class MapViewController: UIViewController{
     
     private func showLocation(){
         if location != nil{
-            let camera = GMSCameraPosition.camera(withLatitude: location!.latitude, longitude: location!.longtitude, zoom: 10)
+            let camera = GMSCameraPosition.camera(withLatitude: location!.latitude, longitude: location!.longtitude, zoom: 6)
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location!.latitude, longitude: location!.longtitude))
             marker.title = location?.title
             marker.map = mapView
             mapView.selectedMarker = marker
-            
             mapView.animate(to: camera)
+            location = nil
         } else {
             locationManager.startUpdatingLocation()
         }
@@ -72,7 +67,7 @@ extension MapViewController: CLLocationManagerDelegate{
         let location = locations.last
         guard let latitude = location?.coordinate.latitude else { return }
         guard let longtitude = location?.coordinate.longitude else { return }
-        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longtitude, zoom: 14)
+        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longtitude, zoom: 4)
         mapView.animate(to: camera)
         self.locationManager.stopUpdatingLocation()
     }

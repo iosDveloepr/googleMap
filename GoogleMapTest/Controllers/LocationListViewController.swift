@@ -68,12 +68,9 @@ extension LocationListViewController: UITableViewDelegate, UITableViewDataSource
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if locations.count > 0{
-            let storybaord = UIStoryboard(name: "Main", bundle: nil)
-            let tabBar = storybaord.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-            let mapVc = tabBar.viewControllers?[1].contentViewcontroller as! MapViewController
-            tabBar.selectedIndex = 1
-            mapVc.location = locations[indexPath.row]
-            self.present(tabBar, animated: false)
+            let secondTab = self.tabBarController?.viewControllers?[1].contentViewcontroller as! MapViewController
+            secondTab.location = locations[indexPath.row]
+            tabBarController?.selectedIndex = 1
         }
     }
     
